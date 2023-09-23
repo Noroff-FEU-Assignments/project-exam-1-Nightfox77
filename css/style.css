@@ -28,7 +28,7 @@ a {
     color: white;
 }
 body {
-    background-color: rgb(214, 214, 214);
+    
     margin: 0;
     text-align: center;
     color: #313238;
@@ -89,7 +89,7 @@ img {
     max-width: 600px;
     position: relative;
 }
-.carousel a {
+.carousel a:not(.arrow) {
     color: #d42324;
     text-decoration: underline;
     font-weight: bold;
@@ -104,6 +104,21 @@ img {
     padding-top: 50px;
     padding-bottom: 150px;
     gap: 20px;
+}
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    border: 16px solid #4B4D54; 
+    border-top: 16px solid #d42324; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 .blogcontainer {
     background-color: white;
@@ -132,7 +147,6 @@ img {
     background-color: black;
     opacity: 0.4; 
     transform: translateX(-100%);
-    transition: .5s; 
 }
 .overlaymenu {
     display: flex;
@@ -145,8 +159,8 @@ img {
     text-align: left;
     font-size: 2em;
     background-color: #4B4D54;
-    transition: 1s;
     transform: translateX(-105%);
+    
 }
 .overlaymenu i {
     text-align: right;
@@ -164,7 +178,6 @@ img {
 .overlaymenu li:hover {
     text-decoration-color: white;
     cursor: pointer;
-
 }
 .bar.footer {
     display: flex;
@@ -178,9 +191,12 @@ img {
 .searchbar {
     position: absolute;
     display: none;
+    left: 0;
+    right: 0;
+    gap: 20px;
     align-items: center;
     justify-content: center;
-    height: 100px;
+    height: 80px;
     background-color: #4B4D54;
     width: 100%;
     transition: 1s;
@@ -191,22 +207,27 @@ img {
     align-items: center;
     justify-content: center;
 }
+.search:hover .searchinput, .search:hover .searchbutton, .search:focus .searchinput{
+    border-color: #d42324;
+}
 .searchinput {
     margin: 10px 0;
-    padding: 5px;
-    border: 1px solid transparent;
-    border-radius: 5px 0 0 5px;
+    padding: 10px;
+    width: 200px;
+    border: 2px  solid transparent;
     border-right: none;
+    border-radius: 5px 0 0 5px;
     outline: none;
 }
 .searchbutton {
-    border-left: none;
     background-color: white;
-    border: 1px solid transparent;
+    border: 2px  solid transparent;
+    border-left: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
+    outline: none;
 }
 footer {
     height: 700px;
@@ -228,6 +249,7 @@ footer {
     color: white;
     font-family: PT Sans Caption;
 }
+
 @media screen and (min-width: 600px) {
     .gallery {
         height: 400px;
@@ -257,8 +279,9 @@ footer {
     }
     .arrow {
         display: grid;
-        height: 100%;
+        height: 50%;
         width: 70px;
+        align-self: center;
         position: absolute;
         background-color: #4b4d5442;
     }
@@ -274,41 +297,40 @@ footer {
     .right {
         right: 0;
     }
-    .bar.footer {
-        top: 150px;
-        position: absolute;
-        justify-content: center;
-    }
-    .overlay {
-        transition: "";
-    }
-    .overlaymenu {
-        transform: translateX(0);
-        background-color: transparent;
-        position: static;
-        width: 100%;
-        top: 170px;
-        gap: 20px;
-        text-align: center;
-        margin: auto 0;
-        transition: "";
-    }
     .gallery {
         margin-top: 80px;
     }
-    ul {
-        margin: auto;
+    .bar.footer  {
+        top: 150px;
+        position:absolute;
+    }
+    .overlay {
+        transition: none;
+        display: none;
+    }
+    .overlaymenu  {
+        transform: translateX(0);
+        transition: none;
+        background-color: transparent;
+        width: 100%;
+        height: 80px;
+        position: relative;
+        text-align: center;
+        top: 15px;
+    }
+    .overlaymenu ul {
         padding: 0;
+        margin: 0;
     }
     .overlaymenu li {
         display: inline;
         margin: 0 20px;
     }
-    .bar.footer .fa-bars, .fa-house, .fa-x {
-        display: none;
-    }
     footer {
         height: 400px;
+        margin-top: 50px;
     }
-    
+    #burgerIcon,.bar.footer .fa-house,.bar.footer .fa-x {
+        display: none;
+    }
 }
