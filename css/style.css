@@ -85,6 +85,7 @@ img {
 }
 .carousel {
     display: flex;
+    flex-direction: column;
     justify-self: center;
     max-width: 600px;
     position: relative;
@@ -130,7 +131,23 @@ img {
     border-radius: 10px;
 }
 .arrow {
-    display: none;
+    display: grid;
+    cursor: pointer;
+    height: 70px;
+    width: 50%;
+    align-self: center;
+    position: absolute;
+    background-color: #4b4d5442;
+}
+.arrow i {
+    align-self: center;
+    transform: rotate(90deg);
+}
+.arrow:hover {
+    background-color: #4b4d54a4;
+}
+.right {
+    bottom: 0;
 }
 .welcome {
     padding: 10px;
@@ -256,6 +273,9 @@ footer {
     }
 }
 @media screen and (min-width: 1000px) {
+    .searchinput {
+        width: 400px;
+    }
     .carousel {
         max-width: 100%;
     }
@@ -278,24 +298,19 @@ footer {
         overflow: hidden;
     }
     .arrow {
-        display: grid;
         height: 50%;
         width: 70px;
-        align-self: center;
-        position: absolute;
-        background-color: #4b4d5442;
-    }
-    .arrow i {
-        align-self: center;
-    }
-    .arrow:hover {
-        background-color: #4b4d54a4;
     }
     .left {
+        top: 25%;
         left: 0;
     }
     .right {
+        bottom: 25%;
         right: 0;
+    }
+    .arrow i {
+        transform: rotate(0deg);
     }
     .gallery {
         margin-top: 80px;
