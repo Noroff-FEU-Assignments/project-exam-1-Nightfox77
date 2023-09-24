@@ -180,6 +180,7 @@ img {
     font-size: 2em;
     background-color: #4B4D54;
     transform: translateX(-105%);
+    overflow: auto;
 }
 .overlaymenu i {
     text-align: right;
