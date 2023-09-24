@@ -171,7 +171,6 @@ img {
     display: flex;
     flex-direction: column;
     position: fixed;
-    z-index: 2;
     width: 80%;
     height: 75%;
     top: 133px;
@@ -204,12 +203,10 @@ img {
     display: flex;
     height: 80px;
     position: fixed;
-    z-index: 100;
     left: 0;
     right: 0;
     bottom: 0;
-    justify-content: space-between; 
-    overflow: hidden;
+    justify-content: space-between;   
 }
 .searchbar {
     position: absolute;
