@@ -179,8 +179,8 @@ img {
     text-align: left;
     font-size: 2em;
     background-color: #4B4D54;
-    transform: translateX(-105%);
-    overflow: auto;
+    transform: translateX(-100%);
+    
 }
 .overlaymenu i {
     text-align: right;
@@ -209,6 +209,7 @@ img {
     right: 0;
     bottom: 0;
     justify-content: space-between; 
+    overflow: hidden;
 }
 .searchbar {
     position: absolute;
