@@ -119,10 +119,11 @@ img {
     width: 50px;
     height: 50px;
     animation: spin 2s linear infinite;
+    -webkit-animation: spin 2s linear infinite;
 }
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); -webkit-transform: rotate(0deg); }
+    100% { transform: rotate(360deg); -webkit-transform: rotate(360deg);}
 }
 .blogcontainer {
     background-color: white;
@@ -145,6 +146,7 @@ img {
 .arrow i {
     align-self: center;
     transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
 }
 .arrow:hover {
     background-color: #4b4d54a4;
@@ -166,6 +168,7 @@ img {
     background-color: black;
     opacity: 0.4; 
     transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
 }
 .overlaymenu {
     display: flex;
@@ -179,6 +182,7 @@ img {
     font-size: 2em;
     background-color: #4B4D54;
     transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
     
 }
 .overlaymenu i {
@@ -324,6 +328,7 @@ footer {
     }
     .arrow i {
         transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
     }
     .gallery {
         margin-top: 80px;
@@ -343,6 +348,7 @@ footer {
     }
     .overlaymenu  {
         transform: translateX(0);
+        -webkit-transform: translateX(0);
         transition: none;
         background-color: transparent;
         width: 100%;
