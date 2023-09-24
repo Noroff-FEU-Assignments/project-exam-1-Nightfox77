@@ -7,7 +7,8 @@ ul, ol {
     list-style: none;
 }
 h1 {
-    font-size: 3em;
+    font-size: 4em;
+    font-weight: 900;
 }
 h1, h2 {
     font-family: Lato;
@@ -26,9 +27,9 @@ p, a {
 }
 a {
     color: white;
+    cursor: pointer;
 }
 body {
-    
     margin: 0;
     text-align: center;
     color: #313238;
@@ -36,7 +37,10 @@ body {
 main {
     display: grid;
 }
-.bar, footer {
+.bar.header {
+    height: 100px;
+}
+.bar.footer, footer {
     background-color: #4B4D54;
     display: flex;
     justify-content: center;
@@ -52,36 +56,34 @@ main {
     max-width: 900px;
     height: 200px;
     margin: 0 auto;
-    overflow: hidden;
 }
-.gallery .imageContainer {
+.imageContainer {
     flex: 0 0 100%;
-    animation: slide-in 15s  infinite;
+    display: flex;
+    overflow: hidden;
+    position: relative;
 }
-
-@keyframes slide-in {
+.imageContainer img {
+    opacity: 0; 
+}
+img.active {
+    position: absolute;
+    z-index: 1;
+    animation: fadeInOut 5s ease-in-out infinite; 
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInOut {
     0%, 100% {
-        transform: translateX(0%);
+      opacity: 0;
     }
-    16.66% {
-        transform: translateX(0%);
-    }
-    33.33% {
-        transform: translateX(-100%);
-    }
-    50% {
-        transform: translateX(-100%);
-    }
-    66.66% {
-        transform: translateX(-200%);
-    }
-    83.33%, 100% {
-        transform: translateX(-200%);
+    25%, 75% {
+        opacity: 1;
     }
 }
 img {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    height: auto;
 }
 .carousel {
     display: flex;
@@ -91,11 +93,12 @@ img {
     position: relative;
 }
 .carousel a:not(.arrow) {
-    color: #d42324;
-    text-decoration: underline;
+    font-family: Lato;
+    font-size: 1.125em;
+    color: #313238;
     font-weight: bold;
 }
-.carousel a:not(.arrow):hover {
+.carousel a:not(.arrow, .contentcontainer a):hover {
     text-decoration: underline;
     color: #d42324;
 }
@@ -151,7 +154,6 @@ img {
 }
 .welcome {
     padding: 10px;
-    text-decoration: underline;
     background-color: white;
 }
 .overlay {
@@ -177,7 +179,6 @@ img {
     font-size: 2em;
     background-color: #4B4D54;
     transform: translateX(-105%);
-    
 }
 .overlaymenu i {
     text-align: right;
@@ -188,12 +189,13 @@ img {
     color: white;
 }
 .overlaymenu li {
+    text-underline-offset: 10px;
     text-decoration: underline;
     text-decoration-color: transparent;
     margin: 10px 0;
 }
 .overlaymenu li:hover {
-    text-decoration-color: white;
+    text-decoration-color: #313238;
     cursor: pointer;
 }
 .bar.footer {
@@ -273,8 +275,18 @@ footer {
     }
 }
 @media screen and (min-width: 1000px) {
+    .gallery {
+        padding-top: 50px;
+    }
+    .searchbar {
+        background-color: white;
+    }
     .searchinput {
         width: 400px;
+        border-color: #313238;
+    }
+    .searchbutton {
+        border-color: #313238;
     }
     .carousel {
         max-width: 100%;
@@ -316,8 +328,13 @@ footer {
         margin-top: 80px;
     }
     .bar.footer  {
-        top: 150px;
+        top: 100px;
         position:absolute;
+        background-color: white;
+        outline: 2px solid black;
+    }
+    .bar.footer a, .bar.footer i {
+        color: #313238;
     }
     .overlay {
         transition: none;
