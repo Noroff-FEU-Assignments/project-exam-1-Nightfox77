@@ -3,17 +3,14 @@ html {
     margin: 0;
     scroll-behavior: smooth;
 }
-ul, ol {
-    list-style: none;
-}
 h1 {
     font-size: 4em;
     font-weight: 900;
 }
-h1, h2 {
+h1, h2 ,figcaption, h3{
     font-family: Lato;
 }
-i:not(.searchbar i) {
+i:not(.searchbar i, .plus i) {
     color: white;
     font-size: 25px;
 }
@@ -21,13 +18,13 @@ i:not(.arrow i):hover{
     color: #d42324;
     cursor: pointer;
 }
-p, a {
+p, a, .copyright {
     font-family: PT Sans Caption;
-    text-decoration: none;
 }
 a {
     color: white;
     cursor: pointer;
+    text-decoration: none;
 }
 body {
     margin: 0;
@@ -58,12 +55,16 @@ main {
     margin: 0 auto;
 }
 .imageContainer {
-    flex: 0 0 100%;
     display: flex;
+    flex-direction: column;
     overflow: hidden;
     position: relative;
 }
-.imageContainer img {
+figcaption {
+    color: #313238;
+    width: 100%;
+}
+.imageContainer img:not(.bloggrid img) {
     opacity: 0; 
 }
 img.active {
@@ -79,7 +80,7 @@ img.active {
         opacity: 1;
     }
 }
-img {
+img:not(.detail img, .modalcontainer img) {
     width: 100%;
     min-height: 100%;
     height: auto;
@@ -91,14 +92,13 @@ img {
     max-width: 600px;
     position: relative;
 }
-.carousel a:not(.arrow) {
+a:not(.arrow, .overlaymenu a) {
     font-family: Lato;
     font-size: 1.125em;
     color: #313238;
     font-weight: bold;
 }
-.carousel a:not(.arrow, .contentcontainer a):hover {
-    text-decoration: underline;
+.contentcontainer a:hover {
     color: #d42324;
 }
 .slider {
@@ -124,16 +124,12 @@ img {
     100% { transform: rotate(360deg);}
 }
 .blogcontainer {
-    background-color: white;
     display: flex;
     flex-direction: column;
     padding: 10px;
     position: relative;
 }
-.blog img {
-    border-radius: 10px;
-}
-.arrow {
+.arrow:not(.plus) {
     display: grid;
     cursor: pointer;
     height: 70px;
@@ -146,15 +142,28 @@ img {
     align-self: center;
     transform: rotate(90deg);
 }
-.arrow:hover {
+.arrow:hover:not(.plus) {
     background-color: #4b4d54a4;
 }
 .right {
     bottom: 0;
 }
+.left {
+    top: -30px;
+}
+.plus {
+    bottom: -70px;
+    position: absolute;
+    display: grid;
+    height: 70px;
+    width: 100%;
+    cursor: pointer;
+}
+.plus i {
+    font-size: 3em;
+}
 .welcome {
     padding: 10px;
-    background-color: white;
 }
 .overlay {
     position: fixed;
@@ -171,7 +180,7 @@ img {
     flex-direction: column;
     position: fixed;
     width: 80%;
-    
+    height: auto;
     bottom: 50px;
     left: 0;
     text-align: left;
@@ -187,16 +196,15 @@ img {
 .overlaymenu ul {
     flex-direction: column;
     color: white;
+    list-style: none;
 }
 .overlaymenu li {
-    text-underline-offset: 10px;
-    text-decoration: underline;
-    text-decoration-color: transparent;
     margin: 10px 0;
 }
-.overlaymenu li:hover {
-    text-decoration-color: #313238;
-    cursor: pointer;
+.activesite {
+    text-underline-offset: 10px;
+    text-decoration: underline;
+    text-decoration-color: white;
 }
 .bar.footer {
     display: flex;
@@ -205,7 +213,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    justify-content: space-between;   
+    justify-content: space-between; 
 }
 .searchbar {
     position: absolute;
@@ -215,7 +223,6 @@ img {
     gap: 20px;
     align-items: center;
     justify-content: center;
-    height: 80px;
     background-color: #4B4D54;
     width: 100%;
     transition: 1s;
@@ -250,7 +257,7 @@ img {
 }
 footer {
     height: 700px;
-    padding-bottom: 40px;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -266,12 +273,80 @@ footer {
 .copyright {
     max-width: 600px;
     color: white;
-    font-family: PT Sans Caption;
 }
-
+.modalcontainer {
+    display: none;
+    background-color: #313238;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.modalcontainer img {
+    max-width: 100%;  
+}
+.bloggrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto 100px auto;
+    max-width: 600px;
+    justify-content: center;
+    position: relative;
+}
+.detailimage {
+    margin: 0;
+}
+.detail {
+    max-width: 900px;
+    flex-direction: column;
+}
+.detail img {
+    width: 100%;
+    position: relative;
+}
+.detail .contentcontainer {
+    text-align: left;
+}
+.detail .content-text {
+    height: auto;
+}
+.caption {
+    font-size: 2em;
+}
 @media screen and (min-width: 600px) {
     .gallery {
         height: 400px;
+    }
+}
+@media screen and (min-width: 700px) {
+    .detailimage  {
+        position: relative;
+        height: auto;
+    }
+    figcaption {
+        position: absolute;
+        color: white;
+        bottom: 120px;
+        height: 10%;
+    }
+    .caption {
+        font-size: 3em;
+    }
+    .imageoverlay {
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    }
+    .detail .contentcontainer {
+        margin-top: 50px;
     }
 }
 @media screen and (min-width: 1000px) {
@@ -295,8 +370,15 @@ footer {
         flex-direction: row;
         padding: 20px 50px;
     }
-    .blogcontainer {
+    .blogcontainer:not(.bloggrid .blogcontainer) {
         width: 25%;
+    }
+    .bloggrid:not(.detail) {
+        max-width: 1200px;
+        gap: 20px;
+    }
+    .bloggrid:not(.detail) .blogcontainer {
+        width: 40%;
     }
     .blog.imagecontainer  {
         height: 100%;
@@ -309,9 +391,9 @@ footer {
         height: 200px;
         overflow: hidden;
     }
-    .arrow {
+    .arrow:not(.plus) {
         height: 50%;
-        width: 70px;
+        width: 50px;
     }
     .left {
         top: 25%;
@@ -329,6 +411,7 @@ footer {
     }
     .bar.footer  {
         top: 100px;
+        height: 80px;
         position:absolute;
         background-color: white;
         outline: 2px solid black;
@@ -350,6 +433,10 @@ footer {
         text-align: center;
         top: 15px;
     }
+    .overlaymenu li:hover {
+        text-decoration-color: #313238;
+        cursor: pointer;
+    }
     .overlaymenu ul {
         padding: 0;
         margin: 0;
@@ -358,11 +445,17 @@ footer {
         display: inline;
         margin: 0 20px;
     }
+    .activesite {
+        text-decoration-color: #313238;
+    }
     footer {
         height: 400px;
         margin-top: 50px;
     }
     #burgerIcon,.bar.footer .fa-house,.bar.footer .fa-x {
         display: none;
+    }
+    .detail {
+        margin-top: 150px;
     }
 }
