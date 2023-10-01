@@ -34,6 +34,29 @@
             Contact
         </h1>
     </section>
+    <section class="formcontainer">
+            <div class="blogcontainer contact">
+                <h1>Thanks for reaching out! We get back to you soon.</h1>
+            </div>
+            <form>
+                <fieldset>
+                    <label for="name">Name<p class="errormessage name">Enter a name(at least 5 characters)</p></label>
+                    <input id="name" type="text">
+                
+                    <label for="email">E-mail<p class="errormessage mail">Enter a valid email address</p></label>
+                    <input id="email" type="email">
+                
+                    <label for="subject">Subject<p class="errormessage subject">Subjects need to be at least 15 characters long</p></label>
+                    <input id="subject" type="text">
+               
+                
+                    <label for="message">Message<p class="errormessage message">Your message should be at least 25 characters long</p></label>
+                    <textarea id="message" cols="5" rows="10"></textarea>
+                </fieldset>
+                <button disabled>Submit</button>
+            </form>
+    </section>
+
     <div class="overlay"></div>
     
 </main>
@@ -42,10 +65,10 @@
         <div class="overlaymenu">
             <i class="fa-solid fa-x fa-large"></i>
             <ul>
-                <li><a class="activesite" href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="blogs.html">Blogs</a></li>
                 <li><a href="index.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a class="activesite"  href="contact.html">Contact</a></li>
             </ul>
         </div>
         <a id="burgerIcon"><i class="fa-solid fa-bars"></i></a>
@@ -79,6 +102,6 @@
     </div>
 </footer>
 </body>
-<script src="/js/apiCallHome.js"></script>
+<script src="/js/contactValidation.js"></script>
 <script src="/js/home.js"></script>
 </html>
