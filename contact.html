@@ -13,9 +13,6 @@
 </head>
 
 <body>
-    <div class="modalcontainer">
-        <img>
-    </div>
     <header>
         <div class="bar header" id="header">
             <div class="logo">
@@ -25,23 +22,18 @@
         </div>
     </header>
     <main>
-    <div class="bloggrid detail">
-        <div class="loader"></div>
-        <div class="blogcontainer">
-            <figure class="detailimage">
-                <img>
-                <div class="imageoverlay"></div>
-                <figcaption>
-                    <h1 class="caption"></h1>
-                    <p class="date"></p>
-                </figcaption>
-                
-            </figure>
-            <div class="contentcontainer">
-                <p class="content-text"></p>
-            </div>
+    <div class="gallery">
+        <div class="imageContainer">
+            <img src="/images/vecteezy_view-of-downtown-tokyo-skyline-at-twilight_1309658.JPG" alt="Picture of downtown Tokyo">
+            <img src="/images/Japan-Kyoto-park-pagoda-colorful-leaves-trees-pond-autumn_3840x2160.JPG" alt="Picture of a park in kyoto">
+            <img src="/images/fuji-mountain-kawaguchiko-lake-morning-autumn-seasons-fuji-mountain-yamanachi-japan.JPG" alt="Picture of mount Fuji">
         </div>
     </div>
+    <section class="welcome">
+        <h1 class="welcome-headline">
+            Contact
+        </h1>
+    </section>
     <div class="overlay"></div>
     
 </main>
@@ -50,7 +42,7 @@
         <div class="overlaymenu">
             <i class="fa-solid fa-x fa-large"></i>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a class="activesite" href="index.html">Home</a></li>
                 <li><a href="blogs.html">Blogs</a></li>
                 <li><a href="index.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -75,7 +67,7 @@
         <i class="fa-brands fa-square-youtube"></i>
     </div>
     <div class="copyright">
-        <p>Copyright © [Year] [Copyright Holder's Name]. All rights reserved.</p>
+        <p>Copyright © [Year] [Copyright Holder's Name]. All rights reserved.
         [Additional information or legal statement]
         Permission is hereby granted, free of charge, to any person obtaining a copy of this [work/document], to deal in the [work/document] without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the [work/document], and to permit persons to whom the [work/document] is furnished to do so, subject to the following conditions:    
         [License terms or disclaimers, if applicable]
@@ -86,8 +78,7 @@
         <a href="#header"><i class="fa-solid fa-circle-arrow-up"></i></a>
     </div>
 </footer>
-    
 </body>
-<script src="/js/getDetails.js"></script>
+<script src="/js/apiCallHome.js"></script>
 <script src="/js/home.js"></script>
 </html>
