@@ -11,10 +11,6 @@ async function getApi(startIndex) {
     console.log(result);
    
     // checks if there is more content to load
-    
-  
-   
-
     for (let i = startIndex; i < startIndex + 10 && i < result.length; i++) {
       const container = createBlogContainer(result[i]);
       container.setAttribute("data-id", result[i].id)
@@ -25,15 +21,8 @@ async function getApi(startIndex) {
       setTimeout(() => {
         loader.style.display = "none";
       }, 500); 
-
-
     }
-    
-    
-    
     currentIndex = startIndex;
-    
-    
   } catch (error) {
     console.log("Ups!!!", error);
   } finally {
@@ -52,7 +41,6 @@ function createBlogContainer(item) {
   loader.classList.add("loader");
   blogContainer.appendChild(loader);
   
-
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("blog", "imagecontainer");
   const image = document.createElement("img");
@@ -61,6 +49,21 @@ function createBlogContainer(item) {
   imageContainer.appendChild(image);
   blogContainer.appendChild(imageContainer);
   
+  const categories = document.createElement("p");
+  categories.classList.add("categories");
+  const categoriesList = item.categories;
+      for (let y = 0; y < categoriesList.length; y++) {
+        const categoryItem = categoriesList[y].name;
+        categories.textContent += categoryItem  ;
+
+        if (y < categoriesList.length - 1) {
+          categories.textContent += ",";
+        }
+      }
+      
+  blogContainer.appendChild(categories);
+  
+
   const contentContainer = document.createElement("div");
   contentContainer.classList.add("contentcontainer");
   blogContainer.appendChild(contentContainer);
@@ -91,7 +94,6 @@ function createBlogContainer(item) {
 
   return blogContainer;
 }
-
 function loadNextResults() {
     currentIndex += 10;
     getApi(currentIndex);
@@ -99,7 +101,6 @@ function loadNextResults() {
   
 
 getApi(currentIndex);
-
 // handles click on the arrows
 arrow.addEventListener("click", loadNextResults);
 

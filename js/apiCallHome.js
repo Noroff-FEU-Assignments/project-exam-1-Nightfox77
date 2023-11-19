@@ -23,7 +23,8 @@ async function getApi(startIndex) {
 
     for (let i = startIndex; i < startIndex + 4 && i < result.length; i++) {
       const container = createBlogContainer(result[i]);
-        
+      
+      
       
       container.setAttribute("data-id", result[i].id)
       carouselContainer.appendChild(container);
@@ -44,12 +45,14 @@ async function getApi(startIndex) {
     if (displayedContainers.length < 4) {
         arrowRight.style.display = "none";
     }
+    
   } catch (error) {
     console.log("Ups!!!", error);
   } finally {
     console.log("Success!!!!");
   }
 }
+
 // dynamically adds containers to fill with content
 function createBlogContainer(item) {
     
@@ -62,6 +65,7 @@ function createBlogContainer(item) {
   loader.classList.add("loader");
   blogContainer.appendChild(loader);
   
+  
 
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("blog", "imagecontainer");
@@ -70,6 +74,20 @@ function createBlogContainer(item) {
   image.alt = "Image";
   imageContainer.appendChild(image);
   blogContainer.appendChild(imageContainer);
+
+  const categories = document.createElement("p");
+  categories.classList.add("categories");
+  const categoriesList = item.categories;
+      for (let y = 0; y < categoriesList.length; y++) {
+        const categoryItem = categoriesList[y].name;
+        categories.textContent += categoryItem  ;
+
+        if (y < categoriesList.length - 1) {
+          categories.textContent += ",";
+        }
+      }
+      
+  blogContainer.appendChild(categories);
 
   const contentContainer = document.createElement("div");
   contentContainer.classList.add("contentcontainer");
@@ -101,6 +119,7 @@ function createBlogContainer(item) {
 
   return blogContainer;
 }
+
 // handles to load the next 4 results
 function loadNextResults() {
   currentIndex += 4;

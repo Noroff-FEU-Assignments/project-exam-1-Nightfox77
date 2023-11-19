@@ -13,6 +13,8 @@ async function getApi() {
         console.log(result);
         loader.style.display = "none";
         
+        const title = document.querySelector("title");
+        title.innerHTML = title.innerHTML + result.name;
         
         for (let i = 0 ; i < result.images.length; i++) {
             const image = document.querySelector(".blogcontainer img");
@@ -31,7 +33,22 @@ async function getApi() {
 
         const date = document.querySelector(".date");
         date.innerHTML = `Date: ${result.date_created.substr(0,10)}`;
+        
+        const categorieParagraph = document.querySelector(".categories");
+        const categoriesList = result.categories;
+        for (let y = 0; y < categoriesList.length; y++) {
+        const categoryItem = categoriesList[y].name;
+        categorieParagraph.textContent += categoryItem  ;
 
+        if (y < categoriesList.length - 1) {
+            categorieParagraph.textContent += ",";
+          }
+      }
+        
+        
+      
+  
+ 
 
     }
     catch (error) {
