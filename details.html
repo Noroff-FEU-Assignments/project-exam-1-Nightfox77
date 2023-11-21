@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans+Caption&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="images\android-chrome-512x512.png" type="image/png">
     <script src="https://kit.fontawesome.com/5290b1a98f.js" crossorigin="anonymous"></script>
     <title>JTB- Japan Travel Blog -</title>
 </head>
@@ -41,6 +41,20 @@
                 <p class="content-text"></p>
             </div>
         </div>
+        <form class="contactform comment">
+            <fieldset>
+                <h2>Write a comment</h2>
+                <label for="name"><p class="errormessage name">Enter a name(at least 5 characters)</p></label>
+                <input id="name" type="text" placeholder="Name">
+            
+                <label for="email"><p class="errormessage mail">Enter a valid email address</p></label>
+                <input id="email" type="email" placeholder="E-mail">
+            
+                <label for="message"><p class="errormessage message">Your message should be at least 25 characters long</p></label>
+                <textarea id="message" rows="10" placeholder="Your Message"></textarea>
+            </fieldset>
+            <button disabled>Submit your comment</button>
+        </form>
     </div>
     <div class="overlay"></div>
     

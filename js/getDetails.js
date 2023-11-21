@@ -38,7 +38,7 @@ async function getApi() {
         const categoriesList = result.categories;
         for (let y = 0; y < categoriesList.length; y++) {
         const categoryItem = categoriesList[y].name;
-        categorieParagraph.textContent += categoryItem  ;
+        categorieParagraph.textContent +=" "+ categoryItem  ;
 
         if (y < categoriesList.length - 1) {
             categorieParagraph.textContent += ",";

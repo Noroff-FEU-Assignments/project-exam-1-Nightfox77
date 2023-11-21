@@ -177,7 +177,6 @@ a:not(.arrow, .overlaymenu a) {
     font-size: 3em;
 }
 .welcome-headline {
-    color: white;
     background-color: #92b6b1;
     padding: 30px 0;
 }
@@ -384,7 +383,6 @@ label {
 }
 .contactform input {
     height: 30px;
-    width: 100%;
 }
 .contactform textarea,.contactform input {
     outline: none;
@@ -430,6 +428,9 @@ button:disabled {
     padding: 100px;
     color: #4B4D54;
     display: none;
+}
+.contactform.comment {
+    border: 1px solid #4B4D54;
 }
 @media screen and (min-width: 600px) {
     .gallery {
@@ -522,6 +523,10 @@ button:disabled {
         display: inline;
         margin: 0 20px;
     }
+    .content-text {
+        height: 100px;
+        overflow: hidden;
+    }
     footer {
         height: 400px;
         margin-top: 50px;
@@ -535,7 +540,7 @@ button:disabled {
     .formcontainer {
         flex-direction: row;
     }
-    .contactform {
+    .contactform:not(.comment) {
         width: 40%;
     }
 }
@@ -550,10 +555,7 @@ button:disabled {
     .content-headline {
         height: 40px;
     }
-    .content-text {
-        height: 100px;
-        overflow: hidden;
-    }
+
     .blogcontainer:not(.bloggrid .blogcontainer, .contact) {
         width: 25%;
     }

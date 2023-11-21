@@ -2,6 +2,7 @@ let currentIndex = 0;
 const arrowRight = document.querySelector(".arrow.right");
 const arrowLeft = document.querySelector(".arrow.left");
 const carouselContainer = document.querySelector(".slider");
+const loader = document.querySelector(".loader");
 
 const url = "https://nightfox.no/JapanTravelBlog/wp-json/wc/v3/products/?per_page=20&consumer_key=ck_c69945534ca43c9d86de2416bc85941f76ad51b3&consumer_secret=cs_73f299335b404f1004241d0b181562359dd479a3";
 // api call
@@ -10,7 +11,7 @@ async function getApi(startIndex) {
     const response = await fetch(url);
     const result = await response.json();
     console.log(result);
-    
+    loader.style.display = "none";
     // checks if there is more content to load
     if (startIndex >= result.length) {
       arrowRight.style.display = "none";
@@ -23,15 +24,8 @@ async function getApi(startIndex) {
 
     for (let i = startIndex; i < startIndex + 4 && i < result.length; i++) {
       const container = createBlogContainer(result[i]);
-      
-      
-      
       container.setAttribute("data-id", result[i].id)
       carouselContainer.appendChild(container);
-      const loader = container.querySelector(".loader");
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 300); 
     }
     
     currentIndex = startIndex;
@@ -60,10 +54,6 @@ function createBlogContainer(item) {
   blogContainer.classList.add("blogcontainer");
   
     carouselContainer.appendChild(blogContainer);
-
-  const loader = document.createElement("div");
-  loader.classList.add("loader");
-  blogContainer.appendChild(loader);
   
   
 
@@ -80,7 +70,7 @@ function createBlogContainer(item) {
   const categoriesList = item.categories;
       for (let y = 0; y < categoriesList.length; y++) {
         const categoryItem = categoriesList[y].name;
-        categories.textContent += categoryItem  ;
+        categories.textContent += " "+categoryItem  ;
 
         if (y < categoriesList.length - 1) {
           categories.textContent += ",";
