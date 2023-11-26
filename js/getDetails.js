@@ -26,6 +26,7 @@ async function getApi() {
 
         }
         const captionContainer = document.querySelector(".caption");
+        document.getElementsByTagName('meta')["description"].content = result.name;
         captionContainer.textContent = result.name;
 
         const contentText = document.querySelector(".content-text");
@@ -67,6 +68,8 @@ const modal = document.querySelector(".modalcontainer");
 image.onclick = function showModal() {
     modal.style.display = "flex";
 }
-modal.onclick = function closeModal() {
-    modal.style.display = "none";
+modal.onclick = function closeModal(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
 }

@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=PT+Sans+Caption&display=swap" rel="stylesheet">
     <link rel="icon" href="images\android-chrome-512x512.png" type="image/png">
     <script src="https://kit.fontawesome.com/5290b1a98f.js" crossorigin="anonymous"></script>
+    <!-- Hotjar Tracking Code for https://splendorous-malasada-d2254d.netlify.app/ -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:3756521,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
     <title>JTB- Japan Travel Blog -</title>
 </head>
 
@@ -50,10 +62,10 @@
                 <label for="email"><p class="errormessage mail">Enter a valid email address</p></label>
                 <input id="email" type="email" placeholder="E-mail">
             
-                <label for="message"><p class="errormessage message">Your message should be at least 25 characters long</p></label>
+                <label for="message"><p class="errormessage message">Come on......you have to write something!!!</p></label>
                 <textarea id="message" rows="10" placeholder="Your Message"></textarea>
             </fieldset>
-            <button disabled>Submit your comment</button>
+            <button id="submitButton" disabled>Submit your comment</button>
         </form>
     </div>
     <div class="overlay"></div>
@@ -102,6 +114,8 @@
 </footer>
     
 </body>
+<script src="/js/commentValidation.js"></script>
+<script src="/js/submitComment.js"></script>
 <script src="/js/getDetails.js"></script>
 <script src="/js/home.js"></script>
 </html>

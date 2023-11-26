@@ -316,6 +316,9 @@ footer {
 .detailimage {
     margin: 0;
 }
+.detailimage:hover {
+    cursor: zoom-in;
+}
 .detail {
     max-width: 900px;
     flex-direction: column;
@@ -363,6 +366,10 @@ footer {
     text-align: center;
     line-height: 25px;
 }
+.contactSuccess {
+    display: none;
+    line-height: normal;
+}
 fieldset {
     display: flex;
     flex-direction: column;
@@ -399,7 +406,7 @@ label {
     font-size: 1.5em;
     margin: 20px ;
     cursor: pointer;
-    outline: none;
+    outline: 2px solid #313238;
     border: none;
     color: #313238;
     background-color: white;
@@ -412,6 +419,7 @@ label {
 button:disabled {
     color: #b3b7c7;
     background-color: #d4d8e7;
+    outline: none;
 }
 .contactform input:hover,.contactform input:active,.contactform input:focus,.contactform textarea:hover,.contactform textarea:active,.contactform textarea:focus {
     border: 2px  solid #313238;
@@ -425,9 +433,11 @@ button:disabled {
 }
 .contact {
     background-color: #4B4D54;
-    padding: 100px;
-    color: #4B4D54;
+    color: white;
     display: none;
+}
+.contact h1 {
+    background-color: #92b6b1;
 }
 .contactform.comment {
     border: 1px solid #4B4D54;

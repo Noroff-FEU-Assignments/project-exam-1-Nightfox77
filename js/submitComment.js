@@ -1,13 +1,29 @@
-const url = "https://nightfox.no/JapanTravelBlog/wp-json/wc/v3/comments/consumer_key=ck_c69945534ca43c9d86de2416bc85941f76ad51b3&consumer_secret=cs_73f299335b404f1004241d0b181562359dd479a3";
-async function getApi() {
+
+
+button.onclick = async function sendComment(event) {
+    event.preventDefault();
+
+    const name = document.querySelector("#name").value;
+    const mail = document.querySelector("#email").value;
+    const message = document.querySelector("#message").value;
+
+    var formData = [name, mail, message];
+    
     try {
-      const response = await fetch(url);
-      const result = await response.json();
-      console.log(result);
-      
-    } catch (error) {
-      console.log("Ups!!!", error);
-    } finally {
-      console.log("Success!!!!");
-    }
-  }
+        
+        const response = await fetch('https://nightfox.no/JapanTravelBlog/wp-json/wp/v2/comments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8',
+            },
+            body: JSON.stringify(formData),
+        });
+
+if (response.ok) {
+    console.log('Comment submitted successfully!');
+} else {
+    console.error('Error submitting comment.');
+}
+} catch (error) {
+console.error('Error:', error);
+}}

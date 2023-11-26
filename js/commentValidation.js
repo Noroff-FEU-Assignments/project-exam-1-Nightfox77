@@ -1,13 +1,10 @@
 const fullName = document.querySelector("#name");
 const mail = document.querySelector("#email");
 const message = document.querySelector("#message");
-const subject = document.querySelector("#subject");
 const errorName = document.querySelector(".errormessage.name");
 const errorMail = document.querySelector(".errormessage.mail");
-const errorSubject = document.querySelector(".errormessage.subject");
 const errorText = document.querySelector(".errormessage.message");
 const button = document.querySelector("button");
-
 
 
 /* 
@@ -37,24 +34,12 @@ function mailValidation(event) {
 
     }
 }
-
-function subjectValidation(event) {
-    event.preventDefault();
-    if (lengthCheck(subject.value, 14) === true) {
-        errorSubject.style.display = "";
-        checkAllFields();
-    }   else {
-        errorSubject.style.display = "block";
-        button.disabled = true;
-
-    }
-}
 /* 
 checks if input length is more than 24 characters
 */
 function validateMessage(event) {
     event.preventDefault();
-    if (lengthCheck(message.value, 24) === true) {
+    if (lengthCheck(message.value, 1) === true) {
         errorText.style.display = "";
         checkAllFields();
     }   else {
@@ -62,20 +47,7 @@ function validateMessage(event) {
         button.disabled = true;
     }
 }
-
 /* 
-checks if all input fields are filled out correctly and enables nextbutton 
-*/    
-function checkAllFields() {
-    const allFieldsValid = (
-      lengthCheck(fullName.value, 4) &&
-      validateMail(mail.value) &&
-      lengthCheck(subject.value, 14) &&
-      lengthCheck(message.value, 24)
-    );
-    button.disabled = !allFieldsValid;
-}
-  /* 
 checks length of input
 */ 
 function lengthCheck(value, len) {
@@ -95,17 +67,15 @@ function validateMail(mailValue) {
     return matchingPattern;
 }
 
+function checkAllFields() {
+    const allFieldsValid = (
+      lengthCheck(fullName.value, 4) &&
+      validateMail(mail.value) &&
+      lengthCheck(message.value, 1) 
+      
+    );
+    button.disabled = !allFieldsValid;
+}
 fullName.addEventListener("input", validateName);
 mail.addEventListener("input", mailValidation);
-subject.addEventListener("input", subjectValidation);
 message.addEventListener("input", validateMessage);
-
-const success = document.querySelector(".contactSuccess");
-const greeting = document.querySelector(".greeting");
-const form = document.querySelector(".contactform.fullform");
-button.onclick = function showSuccess(event) {
-    event.preventDefault();
-    form.style.display = "none";
-    greeting.style.display = "none";
-    success.style.display = "flex";
-}
