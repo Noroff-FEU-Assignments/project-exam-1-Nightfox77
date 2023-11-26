@@ -269,8 +269,8 @@ a:not(.arrow, .overlaymenu a) {
     outline: none;
 }
 footer {
-    height: 500px;
-    padding: 20px 0;
+    height: 550px;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
