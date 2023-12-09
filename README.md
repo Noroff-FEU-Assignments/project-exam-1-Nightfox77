@@ -6,13 +6,27 @@ A Travel Blog with content drawn from a WordPress Rest API
 
 ## Description
 
-Add a more detailed description of what your project entails and set out to do.
+After learning how to use WordPress and how to use it as a API, I started working on this travel blog.
+I added the pictures and content as products in WooCommerce and then fetched it from there.
 
-You can add some bullet points if you'd like to:
+- ## On the homepage
+  I created a gallery that changes automatically every few seconds.
+  The section ``Latest Blogs``shows 4 Blogs and on click of the left/right arrows more blogs are loaded.
+  The arrows disappear if there are no more blogs to be loaded
+  
+- ## On the blogs page
+  Here the 10 first blogs are loaded and on click of the plus icon the next 10 are loaded
 
-- List item 1
-- List item 2
-- List item 3
+- ## On the single blog page
+  The image opens on clicking a modal that reveals a bigger view of that image
+  I also prepared a comment section to send comments and eventually display them
+
+- ## On the About page
+  I did nothing special here just added a picture and some information
+
+- ## On the contact page
+  I added a form and a validation process. The button enables when all requirements are met.
+  
 
 ## Built With
 - Html
@@ -34,22 +48,3 @@ git clone git@github.com:NoroffFEU/portfolio-1-example.git
 ```
 
 
-## Contributing
-
-Here you can detail any information you want to provide regarding contributing to the project. For big projects you will usually have a separate `CONTRIBUTING.md` and link to it, but for smaller projects you can simply include instructions here. These instructions can simply detail the process you want a person to take, such as to make sure to open a pull request so code can be reviewed.
-
-## Contact
-
-This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
-
-[My Twitter page](www.twitter.com)
-
-[My LinkedIn page](www.linkedin.com)
-
-## License
-
-You can link to your license file here if you're using one, or mention what license the codebase falls under. If you're unsure then you can simply delete this section.
-
-## Acknowledgments
-
-This is where you can add any acknowledgements if you'd like, such as to people who have helped you or any code snippets you'd like to mention. You can delete this section if you don't have any acknowledgements to make.
